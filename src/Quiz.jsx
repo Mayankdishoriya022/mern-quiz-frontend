@@ -12,7 +12,7 @@ const Quiz = () => {
 
 
   useEffect(()=>{
-    axios.get('http://localhost:4000/question')
+    axios.get('https://mern-quiz-backend-1-5w6m.onrender.com/question')
     .then(res=>{
       setQuestions(res.data)
     }).catch(e=>{
@@ -33,8 +33,8 @@ const Quiz = () => {
 
 
   const saveScore=async ()=>{
-    await axios.post ("http://localhost:4000/scores",{username, score, total:questions.length})
-    const res=await axios.get (`http://localhost:4000/scores/${username}`)
+    await axios.post ("https://mern-quiz-backend-1-5w6m.onrender.com/scores",{username, score, total:questions.length})
+    const res=await axios.get (`https://mern-quiz-backend-1-5w6m.onrender.com/scores/${username}`)
     setHistory(res.data)
     
   }

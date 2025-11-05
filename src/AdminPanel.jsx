@@ -7,7 +7,7 @@ const  AdminPanel=()=> {
   const [editingId, setEditingid]=useState(null)
   
   const fetchQuestions=async()=>{
-    const res=await axios.get("http://localhost:4000/question")
+    const res=await axios.get(" https://mern-quiz-backend-1-5w6m.onrender.com/question")
     setQuestions(res.data)
   }
   useEffect(()=>{
@@ -20,16 +20,16 @@ const  AdminPanel=()=> {
   }
 
   const deleteQuestion=async(id)=>{
-    await axios.delete(`http://localhost:4000/questions/${id}`)
+    await axios.delete(`https://mern-quiz-backend-1-5w6m.onrender.com/questions/${id}`)
     fetchQuestions()
   }
 
   const handlesave=async()=>{
     if(editingId){
-      await axios.put(`http://localhost:4000/questions/${editingId}`, form)
+      await axios.put(`https://mern-quiz-backend-1-5w6m.onrender.com/questions/${editingId}`, form)
     }
     else{
-      await axios.post("http://localhost:4000/question", form)
+      await axios.post("https://mern-quiz-backend-1-5w6m.onrender.com/question", form)
     }
     fetchQuestions()
     setForm({questions:"", options:["","","",""], answer:0})
